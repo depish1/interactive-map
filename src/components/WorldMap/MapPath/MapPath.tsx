@@ -1,4 +1,5 @@
 import { Path } from './MapPath.style';
+import { useStore } from 'Store/store';
 
 interface IPathProps {
   d: string;
@@ -7,7 +8,8 @@ interface IPathProps {
 }
 
 const MapPath = ({ d, title, id }: IPathProps) => {
-  const isSelected = true; //temp
+  const [isSelected] = useStore((store) => store.selectedCountries.includes(id));
+
   return <Path d={d} data-title={title} id={id} isSelected={isSelected} />;
 };
 
