@@ -9,5 +9,4 @@ export const Form = styled.form`
   grid-template-columns: 1fr min-content;
   max-width: 100%;
   padding: 2rem;
-  width: 60rem;
 `;
