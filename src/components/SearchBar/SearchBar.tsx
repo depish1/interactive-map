@@ -1,4 +1,4 @@
-import { ButtonsWrapper, Form, StyledInput } from './SearchBar.style';
+import { ButtonsWrapper, Form } from './SearchBar.style';
 import { useSearchBar } from './useSearchBar';
 import Button from 'Components/BaseComponents/Button/Button';
 import Input from 'Components/BaseComponents/Input/Input';
@@ -8,7 +8,7 @@ const SearchBar = () => {
 
   return (
     <Form onSubmit={selectCountriesByFilter}>
-      <StyledInput name="filter" onChange={inputChangeHandler} value={inputValue} />
+      <Input name="filter" onChange={inputChangeHandler} value={inputValue} />
       <ButtonsWrapper>
         <Button text="Search" type="submit" />
         <Button onClick={clearSelectedCountries} text="Clear" type="button" variant="danger" />
