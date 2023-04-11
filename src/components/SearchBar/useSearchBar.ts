@@ -30,5 +30,7 @@ export const useSearchBar = () => {
     [filterString, mapRef, setStore],
   );
 
-  return { inputValue: filterString, inputChangeHandler, selectCountriesByFilter };
+  const clearSelectedCountries = useCallback(() => setStore((store) => ({ ...store, selectedCountries: [] })), [setStore]);
+
+  return { inputValue: filterString, inputChangeHandler, selectCountriesByFilter, clearSelectedCountries };
 };
