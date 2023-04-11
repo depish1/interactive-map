@@ -1,4 +1,4 @@
-import { ReactNode, useMemo } from 'react';
+import { MutableRefObject, ReactNode, useMemo, useRef } from 'react';
 
 import { useStore as useGenericStore } from 'Store/genericStore/useStore';
 import GenericProvider from 'Store/genericStore/Provider';
@@ -9,12 +9,16 @@ interface IMapStoreProviderProps {
 
 export interface IStore {
   selectedCountries: string[];
+  mapRef: MutableRefObject<SVGSVGElement>;
 }
 
 const Provider = ({ children }: IMapStoreProviderProps) => {
+  const mapRef = useRef<SVGSVGElement>(null);
+
   const initialValue: IStore = useMemo(
     () => ({
       selectedCountries: [],
+      mapRef,
     }),
     [],
   );

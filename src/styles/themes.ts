@@ -12,6 +12,7 @@ export const theme: ITheme = {
     black1: '#242423',
     black2: '#333533',
     black3: '#495057',
+    error: '#D2001A',
   },
   fontSizes: {
     xSmall: '12px',

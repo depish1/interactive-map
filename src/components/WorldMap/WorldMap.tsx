@@ -3,9 +3,10 @@ import { MouseEvent } from 'react';
 import { Wrapper } from './WorldMap.style';
 import { useStore } from 'Store/store';
 import WorldMapSVG from './WorldMapSVG/WorldMapSVG';
+import SearchBar from 'Components/SearchBar/SearchBar';
 
 const WorldMap = () => {
-  const [_, setStore] = useStore();
+  const [mapRef, setStore] = useStore((store) => store.mapRef);
 
   const mapClickHandler = (e: MouseEvent<SVGSVGElement, globalThis.MouseEvent>) => {
     const element = e.target as HTMLElement;
@@ -22,7 +23,8 @@ const WorldMap = () => {
 
   return (
     <Wrapper>
-      <WorldMapSVG onClick={mapClickHandler} />
+      <SearchBar />
+      <WorldMapSVG ref={mapRef} onClick={mapClickHandler} />
     </Wrapper>
   );
 };
