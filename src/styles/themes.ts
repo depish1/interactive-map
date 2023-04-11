@@ -5,8 +5,8 @@ import { ITheme } from 'Types/ThemeTypes';
 export const theme: ITheme = {
   colors: {
     white1: '#f8f9fa',
-    white2: '#e8e9ea',
-    white3: '#b8b9ba',
+    white2: '#a9b0b7',
+    white3: '#c9d0d7',
     primary1: '#0582ca',
     primary2: '#00a6fb',
     primary3: '#00487c',
