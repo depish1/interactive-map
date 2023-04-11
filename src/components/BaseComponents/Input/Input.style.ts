@@ -6,7 +6,7 @@ interface IStyledInputProps {
 
 export const StyledInput = styled.input<IStyledInputProps>`
   background-color: ${({ theme }) => theme.colors.white1};
-  border: 1px solid ${({ isError, theme }) => (isError ? theme.colors.error : theme.colors.white2)};
+  border: 1px solid ${({ isError, theme }) => `${isError ? theme.colors.danger1 : theme.colors.black3}44`};
   border-radius: 0.5rem;
   color: ${({ theme }) => theme.colors.black1};
   font-size: ${({ theme }) => theme.fontSizes.small};
@@ -16,11 +16,11 @@ export const StyledInput = styled.input<IStyledInputProps>`
   width: 100%;
 
   &:hover:not([readonly]) {
-    border: 1px solid ${({ isError, theme }) => (isError ? theme.colors.error : theme.colors.black2)};
+    border: 1px solid ${({ isError, theme }) => (isError ? theme.colors.danger1 : theme.colors.black2)};
   }
 
   &:focus:not([readonly]) {
-    border: 1px solid ${({ isError, theme }) => theme.colors[isError ? 'error' : 'primary1']};
+    border: 1px solid ${({ isError, theme }) => theme.colors[isError ? 'danger1' : 'primary1']};
   }
 
   &[readonly] {

@@ -44,8 +44,8 @@ export const StyledButton = styled.button<IStyledButtonProps>`
   ${({ variant }) => getColorForButton[variant]}
 
   &:disabled {
-    background-color: ${({ theme }) => theme.colors.white3};
-    border-color: ${({ theme }) => theme.colors.white3};
+    background-color: ${({ theme }) => theme.colors.black3};
+    border-color: ${({ theme }) => theme.colors.black3};
     cursor: default;
   }
 `;

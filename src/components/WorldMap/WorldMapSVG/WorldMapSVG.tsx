@@ -1,13 +1,16 @@
-import { Ref, forwardRef, memo, MouseEvent } from 'react';
+import { Ref, forwardRef, memo, MouseEvent, useEffect } from 'react';
 
 import { SVG, Wrapper } from './WorldMapSVG.style';
 import MapPath from '../MapPath/MapPath';
+import { useZoomMap } from './useZoomMap';
 
 interface IWorldMapSVGProps {
   onClick: (e: MouseEvent<SVGSVGElement, globalThis.MouseEvent>) => void;
 }
 
 const WorldMapSVG = forwardRef(({ onClick }: IWorldMapSVGProps, ref: Ref<SVGSVGElement>) => {
+  useZoomMap();
+
   return (
     <Wrapper>
       <SVG ref={ref} onClick={onClick} viewBox="0 0 1009.6727 665.96301" xmlns="http://www.w3.org/2000/svg">
