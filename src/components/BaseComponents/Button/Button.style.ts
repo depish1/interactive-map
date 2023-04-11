@@ -9,6 +9,7 @@ export const StyledButton = styled.button<IStyledButtonProps>`
   background-color: ${({ theme }) => theme.colors.primary1};
   border: 0.3rem solid ${({ theme }) => theme.colors.primary1};
   border-radius: 1rem;
+  box-shadow: ${({ theme }) => theme.boxShadows.element};
   color: ${({ theme }) => theme.colors.white1};
   cursor: pointer;
   display: flex;

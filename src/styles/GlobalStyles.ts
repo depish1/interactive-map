@@ -12,7 +12,7 @@ export const GlobalStyles = createGlobalStyle`
   }
  
   body {
-    background: ${({ theme }) => theme.colors.primary1};
+    background: ${({ theme }) => theme.colors.primary3};
     font-family: 'Open Sans', sans-serif;
     height: 100%;
     user-select: none;

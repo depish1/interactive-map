@@ -16,7 +16,7 @@ export const StyledInput = styled.input<IStyledInputProps>`
   width: 100%;
 
   &:hover:not([readonly]) {
-    border: 1px solid ${({ isError, theme }) => (isError ? theme.colors.error : theme.colors.white3)};
+    border: 1px solid ${({ isError, theme }) => (isError ? theme.colors.error : theme.colors.black2)};
   }
 
   &:focus:not([readonly]) {
