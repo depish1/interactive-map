@@ -3,7 +3,7 @@ import { useEffect, useCallback } from 'react';
 import { useStore } from 'Store/store';
 import { getTransformParameters, getTransformString } from './WorldMapSVG.helpers';
 
-export const useZoomMap = () => {
+export const useMapZoom = () => {
   const [mapRef] = useStore((store) => store.mapRef);
 
   const zoom = useCallback(
@@ -41,5 +41,5 @@ export const useZoomMap = () => {
     mapRef.current.addEventListener('wheel', zoom);
 
     return () => mapRef.current.removeEventListener('wheel', zoom);
-  }, []);
+  }, [mapRef, zoom]);
 };
