@@ -8,6 +8,7 @@ interface IMapStoreProviderProps {
 }
 
 export interface IStore {
+  hoverCountry: string;
   selectedCountries: string[];
   mapRef: MutableRefObject<SVGSVGElement>;
 }
@@ -17,6 +18,7 @@ const Provider = ({ children }: IMapStoreProviderProps) => {
 
   const initialValue: IStore = useMemo(
     () => ({
+      hoverCountry: '',
       selectedCountries: [],
       mapRef,
     }),
