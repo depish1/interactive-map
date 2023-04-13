@@ -1,24 +1,13 @@
 import { useCallback, useRef, MouseEvent, TouchEvent } from 'react';
 
-import { getPointFromEvent, getTransformParameters } from './WorldMapSVG.helpers';
+import { getPointFromEvent, getTransformParameters, getViewBoxString } from './WorldMapSVG.helpers';
 import { useStore } from 'Store/store';
-
-const defaultViewBox = {
-  x: 0,
-  y: 0,
-  width: 1009.6727,
-  height: 665.96301,
-};
-
-const defaultPointerOrigin = {
-  x: 0,
-  y: 0,
-};
+import { defaultMapViewBox, defaultPointerOrigin } from '@/config.ts';
 
 export const useMapPanning = () => {
   const [mapRef] = useStore((store) => store.mapRef);
   const isPointerDown = useRef(false);
-  const viewBoxRef = useRef(defaultViewBox);
+  const viewBoxRef = useRef(defaultMapViewBox);
   const pointerOriginRef = useRef(defaultPointerOrigin);
 
   const onPointerDown = useCallback(<T extends MouseEvent | TouchEvent>(e: T) => {
@@ -53,8 +42,7 @@ export const useMapPanning = () => {
       viewBoxRef.current.x = shouldBlockX ? viewBoxRef.current.x : newX;
       viewBoxRef.current.y = shouldBlockY ? viewBoxRef.current.y : newY;
 
-      const viewBoxString = `${viewBoxRef.current.x} ${viewBoxRef.current.y} ${viewBoxRef.current.width} ${viewBoxRef.current.height}`;
-      mapRef.current.setAttribute('viewBox', viewBoxString);
+      mapRef.current.setAttribute('viewBox', getViewBoxString(viewBoxRef.current));
       pointerOriginRef.current.x = pointerPosition.x;
       pointerOriginRef.current.y = pointerPosition.y;
     },

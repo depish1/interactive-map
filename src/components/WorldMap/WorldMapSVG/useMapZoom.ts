@@ -4,7 +4,7 @@ import { useStore } from 'Store/store';
 import { getTransformParameters, getTransformString } from './WorldMapSVG.helpers';
 
 export const useMapZoom = () => {
-  const [mapRef] = useStore((store) => store.mapRef);
+  const [mapRef, setStore] = useStore((store) => store.mapRef);
 
   const zoom = useCallback(
     (e: WheelEvent) => {
@@ -13,23 +13,25 @@ export const useMapZoom = () => {
       const { scale } = getTransformParameters(mapRef.current);
       if ((isZoomOut && scale === 1) || (!isZoomOut && scale === 0.1)) return;
 
-      const svg = e.currentTarget as SVGElement;
-      const rect = svg.getBoundingClientRect();
+      const rect = mapRef.current.getBoundingClientRect();
 
       const svgWidth = rect.width / scale;
       const svgHeight = rect.height / scale;
       const cursorXOffset = e.offsetX;
       const cursorYOffset = e.offsetY;
+      console.log({ cursorXOffset, 'rect.width': rect.width, cursorYOffset, 'rect.height': rect.height });
       const xPercent = (cursorXOffset * 100) / svgWidth;
       const YPercent = (cursorYOffset * 100) / svgHeight;
 
       let dScale = 0.2;
       if (isZoomOut) dScale *= -1;
-      mapRef.current.style.transform = getTransformString(scale + dScale);
+      const newScale = scale + dScale;
+      mapRef.current.style.transformOrigin = `${xPercent}% ${YPercent}%`;
+      mapRef.current.style.transform = getTransformString(newScale);
+      setStore((store) => ({ ...store, zoomScale: newScale }));
       if (isZoomOut) return;
-      svg.style.transformOrigin = `${xPercent}% ${YPercent}%`;
     },
-    [mapRef],
+    [mapRef, setStore],
   );
 
   //   Web API is used because React does not provide an api to intentionally set whether an event is passive.

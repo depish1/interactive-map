@@ -9,7 +9,7 @@ export const Wrapper = styled.span`
   font-size: ${({ theme }) => theme.fontSizes.small};
   font-weight: 600;
   left: 1rem;
-  padding: 1rem 2rem;
+  padding: 1rem;
   position: absolute;
   top: 1rem;
   z-index: 2;

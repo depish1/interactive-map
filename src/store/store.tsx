@@ -2,6 +2,7 @@ import { MutableRefObject, ReactNode, useMemo, useRef } from 'react';
 
 import { useStore as useGenericStore } from 'Store/genericStore/useStore';
 import GenericProvider from 'Store/genericStore/Provider';
+import { defaultMpZoomScale } from '@/config.ts';
 
 interface IMapStoreProviderProps {
   children: ReactNode;
@@ -11,6 +12,7 @@ export interface IStore {
   hoverCountry: string;
   selectedCountries: string[];
   mapRef: MutableRefObject<SVGSVGElement>;
+  zoomScale: number;
 }
 
 const Provider = ({ children }: IMapStoreProviderProps) => {
@@ -21,6 +23,7 @@ const Provider = ({ children }: IMapStoreProviderProps) => {
       hoverCountry: '',
       selectedCountries: [],
       mapRef,
+      zoomScale: defaultMpZoomScale,
     }),
     [],
   );

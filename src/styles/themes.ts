@@ -12,7 +12,7 @@ export const theme: ITheme = {
     primary3: '#002962',
     black1: '#242423',
     black2: '#333533',
-    black3: '#495057',
+    black3: '#6c757d',
     danger1: '#c00021',
     danger2: '#ff002b',
   },

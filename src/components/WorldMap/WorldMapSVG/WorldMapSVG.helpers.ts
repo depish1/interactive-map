@@ -1,3 +1,4 @@
+import { ViewBoxType } from 'Types/MapTypes';
 import { MouseEvent, TouchEvent } from 'react';
 
 export const getTransformParameters = (element: SVGSVGElement) => {
@@ -39,3 +40,5 @@ export const getPointFromEvent = (e: MouseEvent | TouchEvent | WheelEvent) => {
 
   return point;
 };
+
+export const getViewBoxString = ({ x, y, height, width }: ViewBoxType): string => `${x} ${y} ${width} ${height}`;
