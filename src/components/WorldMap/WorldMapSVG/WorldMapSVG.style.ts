@@ -6,6 +6,8 @@ export const SVG = styled.svg`
 `;
 
 export const Wrapper = styled.div`
+  background: ${({ theme }) => theme.colors.white2};
+  border: ${({ theme }) => theme.colors.black1} 2px solid;
   height: 100%;
   overflow: hidden;
   width: 100%;

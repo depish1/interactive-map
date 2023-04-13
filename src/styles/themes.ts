@@ -23,7 +23,7 @@ export const theme: ITheme = {
     xLarge: '28px',
   },
   boxShadows: {
-    container: 'rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px',
+    container: 'rgba(0, 0, 0, 0.24) 0px 3px 8px;',
     element: 'rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px',
   },
 };
