@@ -1,5 +1,7 @@
+import { MouseEvent, TouchEvent } from 'react';
+
 export const getTransformParameters = (element: SVGSVGElement) => {
-  const transform = element.style.transform;
+  const { transform } = element.style;
   let scale = 1,
     x = 0,
     y = 0;
@@ -11,4 +13,29 @@ export const getTransformParameters = (element: SVGSVGElement) => {
   return { scale, x, y };
 };
 
-export const getTransformString = (scale: number) => 'scale(' + scale + ')';
+export const getTransformString = (scale?: number, x?: number, y?: number) => {
+  const parts: string[] = [];
+
+  scale && parts.push(`scale(${scale})`);
+  x && parts.push(`translateX(${x})%`);
+  y && parts.push(`translateY(${y})%`);
+
+  return parts.join(' ');
+};
+
+const touchEvents = ['touchstart', 'touchend', 'touchmove'];
+const checkIfIsTouchEvent = (event: MouseEvent | TouchEvent | WheelEvent): event is TouchEvent => touchEvents.includes(event.type);
+
+export const getPointFromEvent = (e: MouseEvent | TouchEvent | WheelEvent) => {
+  const point = { x: 0, y: 0 };
+
+  if (checkIfIsTouchEvent(e)) {
+    point.x = e.targetTouches[0].clientX;
+    point.y = e.targetTouches[0].clientY;
+  } else {
+    point.x = e.clientX;
+    point.y = e.clientY;
+  }
+
+  return point;
+};

@@ -27,7 +27,7 @@ export const useMapZoom = () => {
       if (isZoomOut) dScale *= -1;
       mapRef.current.style.transform = getTransformString(scale + dScale);
       if (isZoomOut) return;
-      svg.style.transformOrigin = xPercent + '% ' + YPercent + '%';
+      svg.style.transformOrigin = `${xPercent}% ${YPercent}%`;
     },
     [mapRef],
   );
