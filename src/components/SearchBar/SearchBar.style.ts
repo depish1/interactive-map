@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   background: ${({ theme }) => theme.colors.white1};
-  box-shadow: ${({ theme }) => theme.boxShadows.container};
+  border-bottom: ${({ theme }) => theme.colors.white3}55 1px solid;
   display: flex;
   justify-content: center;
   padding: 2rem;

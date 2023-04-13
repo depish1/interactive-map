@@ -6,7 +6,7 @@ interface IStyledInputProps {
 
 export const StyledInput = styled.input<IStyledInputProps>`
   background-color: ${({ theme }) => theme.colors.white1};
-  border: 1px solid ${({ isError, theme }) => `${isError ? theme.colors.danger1 : theme.colors.black3}44`};
+  border: 1px solid ${({ isError, theme }) => (isError ? theme.colors.danger1 : theme.colors.black4)};
   border-radius: 0.5rem;
   color: ${({ theme }) => theme.colors.black1};
   font-size: ${({ theme }) => theme.fontSizes.small};
