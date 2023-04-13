@@ -1,10 +1,16 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
+export const Container = styled.div`
   align-items: center;
   display: grid;
-  gap: 2rem;
   grid-template-rows: min-content 1fr;
+  height: 100%;
+  justify-items: center;
+  overflow: hidden;
+  width: 100%;
+`;
+export const MapWrapper = styled.div`
+  background: ${({ theme }) => theme.colors.white2};
   height: 100%;
   justify-items: center;
   overflow: hidden;

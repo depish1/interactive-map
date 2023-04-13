@@ -1,9 +1,9 @@
 import { MouseEvent, useCallback } from 'react';
 
-import { Wrapper } from './WorldMap.style';
+import { Container, MapWrapper } from './WorldMap.style';
 import { useStore } from 'Store/store';
-import WorldMapSVG from './WorldMapSVG/WorldMapSVG';
 import SearchBar from 'Components/SearchBar/SearchBar';
+import WorldMapSVG from './WorldMapSVG/WorldMapSVG';
 
 const WorldMap = () => {
   const [mapRef, setStore] = useStore((store) => store.mapRef);
@@ -36,10 +36,12 @@ const WorldMap = () => {
   );
 
   return (
-    <Wrapper>
+    <Container>
       <SearchBar />
-      <WorldMapSVG ref={mapRef} onClick={mapClickHandler} onMouseMove={mouseMoveHandler} />
-    </Wrapper>
+      <MapWrapper>
+        <WorldMapSVG ref={mapRef} onClick={mapClickHandler} onMouseMove={mouseMoveHandler} />
+      </MapWrapper>
+    </Container>
   );
 };
 

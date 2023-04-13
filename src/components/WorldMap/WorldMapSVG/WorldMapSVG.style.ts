@@ -6,8 +6,9 @@ export const SVG = styled.svg`
 `;
 
 export const Wrapper = styled.div`
-  background: ${({ theme }) => theme.colors.white2};
-  border: ${({ theme }) => theme.colors.black1} 2px solid;
+  background: ${({ theme }) => theme.colors.white1};
+  border: ${({ theme }) => theme.colors.white3} 1px solid;
+  box-shadow: ${({ theme }) => theme.boxShadows.container};
   height: 100%;
   overflow: hidden;
   position: relative;

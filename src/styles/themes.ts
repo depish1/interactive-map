@@ -6,6 +6,7 @@ export const theme: ITheme = {
   colors: {
     white1: '#ffffff',
     white2: '#f8f9fa',
+    white3: '#6c757d',
     primary1: '#004e89',
     primary2: '#407ba7',
     primary3: '#002962',
@@ -23,7 +24,7 @@ export const theme: ITheme = {
     xLarge: '28px',
   },
   boxShadows: {
-    container: 'rgba(0, 0, 0, 0.24) 0px 3px 8px;',
+    container: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;',
     element: 'rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px',
   },
 };
