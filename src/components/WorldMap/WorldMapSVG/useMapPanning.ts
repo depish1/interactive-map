@@ -2,26 +2,25 @@ import { useCallback, useRef, MouseEvent, TouchEvent } from 'react';
 
 import { getPointFromEvent, getTransformParameters, getViewBoxString } from './WorldMapSVG.helpers';
 import { useStore } from 'Store/store';
-import { defaultMapViewBox, defaultPointerOrigin } from '@/config.ts';
 
 export const useMapPanning = () => {
   const [mapRef] = useStore((store) => store.mapRef);
+  const [viewBoxRef] = useStore((store) => store.viewBoxRef);
+  const [pointerRef] = useStore((store) => store.pointerRef);
   const isPointerDown = useRef(false);
-  const viewBoxRef = useRef(defaultMapViewBox);
-  const pointerOriginRef = useRef(defaultPointerOrigin);
 
   const onPointerDown = useCallback(<T extends MouseEvent | TouchEvent>(e: T) => {
     isPointerDown.current = true;
     const pointerPosition = getPointFromEvent(e);
-    pointerOriginRef.current.x = pointerPosition.x;
-    pointerOriginRef.current.y = pointerPosition.y;
+    pointerRef.current.x = pointerPosition.x;
+    pointerRef.current.y = pointerPosition.y;
   }, []);
 
   const onPointerUp = useCallback(<T extends MouseEvent | TouchEvent>(e: T) => {
     isPointerDown.current = false;
     const pointerPosition = getPointFromEvent(e);
-    pointerOriginRef.current.x = pointerPosition.x;
-    pointerOriginRef.current.y = pointerPosition.y;
+    pointerRef.current.x = pointerPosition.x;
+    pointerRef.current.y = pointerPosition.y;
   }, []);
 
   const onPointerMove = useCallback(
@@ -30,8 +29,8 @@ export const useMapPanning = () => {
       e.preventDefault();
       const pointerPosition = getPointFromEvent(e);
       const { scale } = getTransformParameters(mapRef.current);
-      const newX = viewBoxRef.current.x - (pointerPosition.x - pointerOriginRef.current.x);
-      const newY = viewBoxRef.current.y - (pointerPosition.y - pointerOriginRef.current.y);
+      const newX = viewBoxRef.current.x - (pointerPosition.x - pointerRef.current.x);
+      const newY = viewBoxRef.current.y - (pointerPosition.y - pointerRef.current.y);
 
       const maxXValue = (viewBoxRef.current.width * scale - viewBoxRef.current.width) / 2;
       const maxYValue = (viewBoxRef.current.height * scale - viewBoxRef.current.height) / 2;
@@ -46,10 +45,10 @@ export const useMapPanning = () => {
       viewBoxRef.current.y = shouldBlockY ? viewBoxRef.current.y : newY;
 
       mapRef.current.setAttribute('viewBox', getViewBoxString(viewBoxRef.current));
-      pointerOriginRef.current.x = pointerPosition.x;
-      pointerOriginRef.current.y = pointerPosition.y;
+      pointerRef.current.x = pointerPosition.x;
+      pointerRef.current.y = pointerPosition.y;
     },
-    [mapRef],
+    [mapRef, pointerRef, viewBoxRef],
   );
 
   const events = window.PointerEvent

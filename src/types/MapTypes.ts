@@ -4,3 +4,8 @@ export type ViewBoxType = {
   height: number;
   width: number;
 };
+
+export type PointerType = {
+  x: number;
+  y: number;
+};

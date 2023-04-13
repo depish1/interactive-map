@@ -19,7 +19,6 @@ export const useMapZoom = () => {
       const svgHeight = rect.height / scale;
       const cursorXOffset = e.offsetX;
       const cursorYOffset = e.offsetY;
-      console.log({ cursorXOffset, 'rect.width': rect.width, cursorYOffset, 'rect.height': rect.height });
       const xPercent = (cursorXOffset * 100) / svgWidth;
       const YPercent = (cursorYOffset * 100) / svgHeight;
 
