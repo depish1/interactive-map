@@ -1,6 +1,6 @@
 import { useCallback, useRef, MouseEvent, TouchEvent } from 'react';
 
-import { getPointFromEvent, getTransformParameters, getViewBoxString } from './WorldMapSVG.helpers';
+import { getPointFromEvent, getTransformParameters, getViewBoxString } from 'Components/Map/WorldMapSVG/WorldMapSVG.helpers';
 import { useStore } from 'Store/store';
 
 export const useMapPanning = () => {

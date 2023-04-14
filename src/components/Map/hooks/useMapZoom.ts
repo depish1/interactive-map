@@ -1,7 +1,7 @@
 import { useEffect, useCallback } from 'react';
 
 import { useStore } from 'Store/store';
-import { getTransformParameters, getTransformString } from './WorldMapSVG.helpers';
+import { getTransformParameters, getTransformString } from '../WorldMapSVG/WorldMapSVG.helpers';
 
 export const useMapZoom = () => {
   const [mapRef, setStore] = useStore((store) => store.mapRef);

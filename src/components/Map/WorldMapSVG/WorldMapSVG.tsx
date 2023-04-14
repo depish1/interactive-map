@@ -1,10 +1,10 @@
 import { memo } from 'react';
 
-import HoverCountryLabel from 'Components/HoverCountryLabel/HoverCountryLabel';
-import MapPath from '../MapPath/MapPath';
-import ZoomPanel from 'Components/ZoomPanel/ZoomPanel';
+import HoverCountryLabel from 'Components/Map/HoverCountryLabel/HoverCountryLabel';
+import MapPath from 'Components/Map/MapPath/MapPath';
+import ZoomPanel from 'Components/Map/ZoomPanel/ZoomPanel';
 import { SVG, Wrapper } from './WorldMapSVG.style';
-import { useMapInteractions } from './useMapInteractions';
+import { useMapInteractions } from 'Components/Map/hooks/useMapInteractions';
 
 const WorldMapSVG = () => {
   const { events, mapRef } = useMapInteractions();

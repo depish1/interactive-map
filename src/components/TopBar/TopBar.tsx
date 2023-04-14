@@ -1,9 +1,9 @@
-import { ButtonsWrapper, Container, Form } from './SearchBar.style';
+import { ButtonsWrapper, Container, Form } from './TopBar.style';
 import { useSearchBar } from './useSearchBar';
 import Button from 'Components/BaseComponents/Button/Button';
 import Input from 'Components/BaseComponents/Input/Input';
 
-const SearchBar = () => {
+const TopBar = () => {
   const { inputValue, inputChangeHandler, selectCountriesByFilter, clearSelectedCountries } = useSearchBar();
 
   return (
@@ -19,4 +19,4 @@ const SearchBar = () => {
   );
 };
 
-export default SearchBar;
+export default TopBar;

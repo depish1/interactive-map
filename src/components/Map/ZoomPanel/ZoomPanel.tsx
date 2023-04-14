@@ -1,9 +1,10 @@
-import { useStore } from 'Store/store';
-import { InfoElement, Wrapper } from './ZoomPanel.style';
-import Button from 'Components/BaseComponents/Button/Button';
-import { defaultMapTransformOrigin, defaultMapViewBox, defaultMpZoomScale } from '@/config.ts';
 import { useCallback } from 'react';
-import { getViewBoxString } from 'Components/WorldMap/WorldMapSVG/WorldMapSVG.helpers';
+
+import { InfoElement, Wrapper } from './ZoomPanel.style';
+import { defaultMapTransformOrigin, defaultMapViewBox, defaultMpZoomScale } from '@/config.ts';
+import { getViewBoxString } from 'Components/Map/WorldMapSVG/WorldMapSVG.helpers';
+import { useStore } from 'Store/store';
+import Button from 'Components/BaseComponents/Button/Button';
 
 const ZoomPanel = () => {
   const [zoomScale, setStore] = useStore((store) => store.zoomScale);
