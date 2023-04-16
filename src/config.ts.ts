@@ -13,3 +13,5 @@ export const defaultPointerOrigin = {
 export const defaultMapTransformOrigin = '50% 50%';
 
 export const defaultMpZoomScale = 1;
+
+export const API = 'https://restcountries.com/v3.1/alpha';

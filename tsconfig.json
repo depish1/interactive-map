@@ -26,6 +26,7 @@
       "Helpers/*": ["./src/helpers/*"],
       "Store/*": ["./src/store/*"],
       "Hooks/*": ["./src/hooks/*"],
+      "Api/*": ["./src/api/*"],
       "@/*": ["./src/*"]
     }
   },

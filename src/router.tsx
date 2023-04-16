@@ -1,4 +1,4 @@
-import { Route, Navigate, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
+import { Route, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 import { lazy } from 'react';
 
 const MapPage = lazy(() => import('Pages/MapPage/MapPage'));

@@ -14,6 +14,7 @@ export default defineConfig({
       { find: 'Helpers', replacement: path.resolve(__dirname, 'src/helpers') },
       { find: 'Store', replacement: path.resolve(__dirname, 'src/store') },
       { find: 'Hooks', replacement: path.resolve(__dirname, 'src/hooks') },
+      { find: 'Api', replacement: path.resolve(__dirname, 'src/api') },
       { find: '@', replacement: path.resolve(__dirname, 'src') },
     ],
   },
