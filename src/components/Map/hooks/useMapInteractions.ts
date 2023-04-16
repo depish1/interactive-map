@@ -1,4 +1,4 @@
-import { MouseEvent, useCallback, useMemo } from 'react';
+import { MouseEvent, useCallback, useMemo, TouchEvent } from 'react';
 
 import { useMapPanning } from './useMapPanning';
 import { useMapZoom } from './useMapZoom';
@@ -7,6 +7,7 @@ import { useStore } from 'Store/store';
 export const useMapInteractions = () => {
   const [mapRef, setStore] = useStore((store) => store.mapRef);
   const panningEvents = useMapPanning();
+  const zoomEvents = useMapZoom();
 
   const onClick = useCallback(
     (e: MouseEvent<SVGSVGElement, globalThis.MouseEvent>) => {
@@ -43,13 +44,31 @@ export const useMapInteractions = () => {
     [onMouseMove, panningEvents],
   );
 
+  const onTouchMove = useCallback(
+    (e: TouchEvent) => {
+      panningEvents.onTouchMove(e);
+      zoomEvents.onTouchMove(e);
+    },
+    [panningEvents, zoomEvents],
+  );
+
+  const onTouchStart = useCallback(
+    (e: TouchEvent) => {
+      panningEvents.onTouchStart(e);
+      zoomEvents.onTouchStart(e);
+    },
+    [panningEvents, zoomEvents],
+  );
+
   const events = useMemo(
     () => ({
       ...panningEvents,
       onClick,
       onMouseMove: mouseMoveHandler,
+      onTouchMove,
+      onTouchStart,
     }),
-    [mouseMoveHandler, onClick, panningEvents],
+    [mouseMoveHandler, onClick, onTouchMove, onTouchStart, panningEvents],
   );
 
   useMapZoom();

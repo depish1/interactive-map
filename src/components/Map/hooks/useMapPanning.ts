@@ -9,19 +9,25 @@ export const useMapPanning = () => {
   const [pointerRef] = useStore((store) => store.pointerRef);
   const isPointerDown = useRef(false);
 
-  const onPointerDown = useCallback(<T extends MouseEvent | TouchEvent>(e: T) => {
-    isPointerDown.current = true;
-    const pointerPosition = getPointFromEvent(e);
-    pointerRef.current.x = pointerPosition.x;
-    pointerRef.current.y = pointerPosition.y;
-  }, []);
+  const onPointerDown = useCallback(
+    <T extends MouseEvent | TouchEvent>(e: T) => {
+      isPointerDown.current = true;
+      const pointerPosition = getPointFromEvent(e);
+      pointerRef.current.x = pointerPosition.x;
+      pointerRef.current.y = pointerPosition.y;
+    },
+    [pointerRef],
+  );
 
-  const onPointerUp = useCallback(<T extends MouseEvent | TouchEvent>(e: T) => {
-    isPointerDown.current = false;
-    const pointerPosition = getPointFromEvent(e);
-    pointerRef.current.x = pointerPosition.x;
-    pointerRef.current.y = pointerPosition.y;
-  }, []);
+  const onPointerUp = useCallback(
+    <T extends MouseEvent | TouchEvent>(e: T) => {
+      isPointerDown.current = false;
+      const pointerPosition = getPointFromEvent(e);
+      pointerRef.current.x = pointerPosition.x;
+      pointerRef.current.y = pointerPosition.y;
+    },
+    [pointerRef],
+  );
 
   const onPointerMove = useCallback(
     <T extends MouseEvent | TouchEvent | WheelEvent>(e: T) => {

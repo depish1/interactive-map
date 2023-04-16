@@ -1,10 +1,51 @@
-import { useEffect, useCallback } from 'react';
+import { useEffect, useCallback, useRef, TouchEvent, Touch } from 'react';
 
 import { useStore } from 'Store/store';
 import { getTransformParameters, getTransformString } from '../WorldMapSVG/WorldMapSVG.helpers';
+import { PointerType } from 'Types/MapTypes';
 
 export const useMapZoom = () => {
   const [mapRef, setStore] = useStore((store) => store.mapRef);
+  const referencePointRef = useRef({ x: 0, y: 0 });
+
+  const getMidpoint = useCallback(
+    (point1: Touch, point2: Touch): PointerType => ({
+      x: (point1.clientX + point2.clientX) / 2,
+      y: (point1.clientY + point2.clientY) / 2,
+    }),
+    [],
+  );
+
+  const getDistance = useCallback((point1: PointerType, point2: PointerType) => {
+    const dx = point1.x - point2.x;
+    const dy = point1.y - point2.y;
+    return Math.sqrt(dx * dx + dy * dy);
+  }, []);
+
+  const onTouchStart = useCallback(
+    (e: TouchEvent) => {
+      if (e.touches.length === 2) {
+        referencePointRef.current = getMidpoint(e.touches[0], e.touches[1]);
+      }
+    },
+    [getMidpoint],
+  );
+
+  const onTouchMove = useCallback(
+    (e: TouchEvent) => {
+      e.preventDefault();
+      if (e.touches.length === 2) {
+        const newReferencePoint = getMidpoint(e.touches[0], e.touches[1]);
+        const delta = getDistance(newReferencePoint, referencePointRef.current);
+
+        let newScale = delta / 100;
+        newScale = Math.min(Math.max(0.1, newScale), 10);
+
+        mapRef.current.style.transform = getTransformString(newScale);
+      }
+    },
+    [getDistance, getMidpoint, mapRef],
+  );
 
   const zoom = useCallback(
     (e: WheelEvent) => {
@@ -43,4 +84,6 @@ export const useMapZoom = () => {
 
     return () => mapRef.current.removeEventListener('wheel', zoom);
   }, [mapRef, zoom]);
+
+  return { onTouchStart, onTouchMove };
 };
