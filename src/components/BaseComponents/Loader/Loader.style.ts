@@ -26,3 +26,10 @@ export const Dot = styled.span<IDotProps>`
   animation-delay: ${({ delay = 0 }) => delay}ms;
   background-color: ${({ theme }) => theme.colors.primary1};
 `;
+
+export const Wrapper = styled.div`
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+`;
