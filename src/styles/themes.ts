@@ -5,14 +5,14 @@ import { ITheme } from 'Types/ThemeTypes';
 export const theme: ITheme = {
   colors: {
     white1: '#ffffff',
-    white2: '#f8f9fa',
+    white2: '#f0f1f2',
     white3: '#6c757d',
     primary1: '#004e89',
     primary2: '#407ba7',
     primary3: '#002962',
     black1: '#242423',
     black2: '#333533',
-    black3: '#6c757d',
+    black3: '#6c757daa',
     black4: '#6c757d44',
     danger1: '#c00021',
     danger2: '#ff002b',
