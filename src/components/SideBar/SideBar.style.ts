@@ -39,7 +39,6 @@ export const Wrapper = styled.aside<ISideBarProps>`
   height: 100vh;
   max-width: 100%;
   padding: 2rem;
-  padding-top: 0;
   position: relative;
   transition: transform 0.2s ease-in-out;
   width: 40rem;
