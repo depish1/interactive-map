@@ -7,8 +7,7 @@ interface IFlag {
   svg: string;
 }
 
-interface ICurrency {
-  code: string;
+export interface ICurrency {
   name: string;
   symbol: string;
 }
@@ -27,13 +26,15 @@ interface ILanguage {
 
 export interface ICountry {
   name: IName;
+  area: number;
   capital: string;
-  regions: string;
+  region: string;
   subregion: string;
   population: number;
-  currencies: ICurrency[];
+  currencies: Record<string, ICurrency>;
   languages: ILanguage[];
   flags: IFlag;
+  borders: string[];
 }
 
 export const getCountry = async (x: QueryFunctionContext<string[]>): Promise<ICountry> => {

@@ -14,7 +14,6 @@ const ZoomPanel = () => {
   const handleReset = useCallback(() => {
     mapRef.current.style.transform = '';
     mapRef.current.style.transformOrigin = defaultMapTransformOrigin;
-    console.log(getViewBoxString(defaultMapViewBox), defaultMapViewBox);
     mapRef.current.setAttribute('viewBox', getViewBoxString(defaultMapViewBox));
     setStore((store) => ({ ...store, zoomScale: defaultMpZoomScale }));
   }, [mapRef, setStore]);

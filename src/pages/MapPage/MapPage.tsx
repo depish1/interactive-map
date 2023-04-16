@@ -1,5 +1,5 @@
 import { Container, MapWrapper } from './MapPage.style';
-import SideBar from 'Components/SideBar/SideBar';
+import SideBar from 'Components/SideBar/SideBar/SideBar';
 import WorldMapSVG from 'Components/Map/WorldMapSVG/WorldMapSVG';
 
 const MapPage = () => (
