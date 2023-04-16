@@ -2,6 +2,7 @@ export interface ITheme {
   colors: Record<ColorKeyType, HexColorType>;
   fontSizes: Record<FontSizeKeyType, PixelSizeType | RemSizeType>;
   boxShadows: Record<BoxShadowKeyType, string>;
+  zIndexes: Record<string, number>;
 }
 
 type FontSizeKeyType = 'xSmall' | 'small' | 'medium' | 'large' | 'xLarge';

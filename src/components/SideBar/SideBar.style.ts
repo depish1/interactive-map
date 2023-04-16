@@ -42,7 +42,7 @@ export const Wrapper = styled.aside<ISideBarProps>`
   position: relative;
   transition: transform 0.2s ease-in-out;
   width: 40rem;
-  z-index: 2;
+  z-index: ${({ theme }) => theme.zIndexes.sideBar};
 
   ${scrollbarCSS}
 
@@ -73,7 +73,7 @@ export const OpenButton = styled.button<ISideBarProps>`
   left: 0;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 2;
+  z-index: ${({ theme }) => theme.zIndexes.openSideBarButton};
 
   @media (max-width: 1000px) {
     display: ${({ isOpen }) => (isOpen ? 'none' : 'block')};

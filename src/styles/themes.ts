@@ -28,6 +28,12 @@ export const theme: ITheme = {
     container: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;',
     element: 'rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px',
   },
+  zIndexes: {
+    openSideBarButton: 2,
+    sideBar: 3,
+    zoomPanel: 2,
+    hoverCountryLabel: 2,
+  },
 };
 
 declare module 'styled-components' {

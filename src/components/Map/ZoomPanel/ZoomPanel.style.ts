@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
   position: absolute;
   right: 1rem;
   top: 1rem;
-  z-index: 2;
+  z-index: ${({ theme }) => theme.zIndexes.zoomPanel};
 `;
 
 export const InfoElement = styled.span`

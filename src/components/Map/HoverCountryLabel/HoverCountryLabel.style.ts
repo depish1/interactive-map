@@ -12,5 +12,5 @@ export const Wrapper = styled.span`
   padding: 1rem;
   position: absolute;
   top: 1rem;
-  z-index: 2;
+  z-index: ${({ theme }) => theme.zIndexes.hoverCountryLabel};
 `;
