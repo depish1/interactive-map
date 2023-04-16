@@ -2,8 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   align-items: center;
-  display: grid;
-  grid-template-rows: min-content 1fr;
+  display: flex;
   height: 100%;
   justify-items: center;
   overflow: hidden;

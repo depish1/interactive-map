@@ -15,6 +15,7 @@ export const GlobalStyles = createGlobalStyle`
     background: ${({ theme }) => theme.colors.white1};
     font-family: 'Open Sans', sans-serif;
     height: 100%;
+    overflow: hidden;
     user-select: none;
   }
 

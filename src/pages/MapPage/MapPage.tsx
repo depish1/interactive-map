@@ -1,10 +1,10 @@
 import { Container, MapWrapper } from './MapPage.style';
-import TopBar from 'Components/TopBar/TopBar';
+import SideBar from 'Components/SideBar/SideBar';
 import WorldMapSVG from 'Components/Map/WorldMapSVG/WorldMapSVG';
 
 const MapPage = () => (
   <Container>
-    <TopBar />
+    <SideBar />
     <MapWrapper>
       <WorldMapSVG />
     </MapWrapper>

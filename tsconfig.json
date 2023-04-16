@@ -27,6 +27,7 @@
       "Store/*": ["./src/store/*"],
       "Hooks/*": ["./src/hooks/*"],
       "Api/*": ["./src/api/*"],
+      "Icons/*": ["./src/icons/*"],
       "@/*": ["./src/*"]
     }
   },
